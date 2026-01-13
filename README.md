@@ -1,35 +1,49 @@
 Digital Alarm Clock w/ DS1307RTC
 
-This project demonstrates a simple and conventional digital alarm clock with snooze function. Built using Arduino, 7-segment 4 digit display, buzzer and DS1307RTC, it displays the time in 24 hour format.
+This project implements a digital alarm clock with snooze functionality using an Arduino, DS1307 real-time clock (RTC), a 4-digit 7-segment display, push buttons, and a buzzer. The system displays the current time in 24-hour format and triggers an alarm based on predefined conditions in the code.
 
 
 Overview:
 
-DS1307RTC - a real time clock that can output exact Date, Years, Months and Time(Hour,Minutes,Second) from the computer using its internal oscillator and DS1307 library.
+DS1307RTC - maintains accurate date and time using an internal 32.768 kHz crystal oscillator and battery backup. The time is initially set during programming and continues running independently of the Arduino.
 
-7-segment 4 digit display - display the time in "Hours.Minutes" format
+4-Digit 7-Segment Display - display the time in HH.MM format
 
 Buttons - 1st (closer to the display) is "STOP" button
           2nd (closer to DS1307) is "SNOOZE" button
 
 
-Details:
+Alarm Logic:
 
-The clock display time in 24 hr format and alarm time is determined in the code. 
+The clock operates in 24-hour format.
 
-Once the set-time is reached, the buzzer will be sound. 
+When the set alarm time is reached, the buzzer is activated.
 
 If the stop button is pressed, the alarm terminates and reset to ring again after passing midnight.
 
-However, if the snooze is pressed, the buzzer will stop ringing but after pre-determined snooze time (1min in video), it will ring again. 
+However,If SNOOZE is pressed, the alarm pauses and reactivates after a predefined snooze interval (1min in video).
 
-When neither is pressed, the alarm will stop after a set-minute (1min in video) and ring again after same minute with snooze time(1min in video)
+If no button is pressed, the alarm automatically stops after a set duration(1min in video) and reactivates after the snooze interval.(1min in video)
 
 This cycle continues until STOP is pressed.
 
+
 Components used:
-- 7 segment 4-digit display
+- 4-digit 7-segment display
 - DS1307RTC
 - push-buttons
 - Arduino
 - Buzzer
+
+
+Limitations:
+
+Cannot set a desired alarm time externally, only through the code. 
+
+Neither display the Date nor indicate which is STOP or SNOOZE clearly.
+
+Improvements:
+
+Planning to implement OLED display and 4x4 KeyPad to display Date and allow alarm to be set externally, respectively.
+
+Using LED to indicate when Stop is pressed. 
