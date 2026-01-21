@@ -84,8 +84,7 @@ void alarm_clock(int time){
     memory=1;
     alarmed=0;
     s=0;
-    return;
-    }
+  }
   //SNOOZE is pressed
   if (snooze == LOW){
     noTone(buzz);
